@@ -11,4 +11,10 @@ const ShppingListService = {
         .where('id', id)
         .first()
     },
+    deleteItem(knex, id) {
+        return knex('shopping_list')
+            .where({ id })
+            .delete()
+    },
+    
 }
