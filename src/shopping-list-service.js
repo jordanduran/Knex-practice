@@ -21,5 +21,13 @@ const ShppingListService = {
             .where({ id })
             .update(newItemFields)
     },
-    
+    insertItem(knex, id, newItemFields) {
+        return knex
+            .insert(newItem)
+            .into('shopping_list')
+            .returning('*')
+            .then(rows => rows[0])
+    },
 }
+
+module.exports = ShoppingListService
